@@ -1,6 +1,8 @@
 <html>
     <head>
         <script src="http://d3js.org/d3.v3.js"></script>
+        <script src="http://d3js.org/topojson.v1.min.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <style>
             .axis path, .axis line {
               fill: none;
@@ -28,6 +30,43 @@
             p{
               font-size: 14;
             }
+
+            div#Title {
+    			text-align: center;
+    			font-size: 20px;
+    			color: #ca0020;
+    		}
+    		.explanation {
+    			width:650px;
+    			padding-left: 100px;
+    			margin-bottom:30px;
+    			font-size:15px;
+    		}
+    		p b {
+    			color: #ca0020;
+    		}
+
+    		.axis {
+    		  	font: 10px sans-serif;
+    		}
+    		.axis path,
+    		.axis line {
+    		  fill: none;
+    		  stroke: #000;
+    		  shape-rendering: crispEdges;
+    		}
+    `
+    		.axis text {
+    			font-family: Verdana;
+    		}
+
+    		path.plot { fill: none; stroke-width: 3; }
+
+    		.text {
+    			text-anchor: middle;
+    			font-size: 12px;
+    		}
+
         </style>
     </head>
 
@@ -226,6 +265,33 @@
 			    <text x="460" y="210" fill="black" text-anchor="start" alignment-baseline="mathematical" font-size="30">5th Quintile</text>
 			    <!-- http://all-free-download.com/free-vector/download/rickvanderzwet_dollar_sign_clip_art_18009.html -->
 			</svg>
+
+            <br/> <br/> <br/> <br/>
+
+            <div id="Title">
+            	<h1>Age-Quintiles-Wealth Distribution in different year</h1>
+            </div>
+            <div id="heatMap"></div>
+
+            <br/> <br/> <br/> <br/>
+            
+            <div id="Title">
+            <h1>Median/Mean net worth in different regions of US</h1>
+            </div>
+            <!-- <p class="explanation">
+            There are three interesting facts need to notice: <br><br>
+            	First, the distributions among different regions are not so even. The south part of U.S. shows the worst net worth in all the quintiles. The Northest and west show a better performance.<br><br>
+            	Second, the gap between fifth quintile and second quintile is extremely large not to mention the first quintile not shown on the chart is negtive number.<br><br>
+            	Third, the mean net worth and median Median net worth in quitile 2, 3, 4 are quite close to each other. However, the fifth quitile's mean net worth is more than two times on average to the median net worth of fifth quintile, which show the fact that <b>even in the fifth quintile the net worth is not evenly distributed</b>, some super rich guys exist and lift the median value a lot. <b>Meanwhile, There are some data showing a astonishing fact that top 1% people owns 1.5 times wealth to the bottom 50% people.</b>
+            </p> -->
+            <p class="explanation">
+            The mean net worth and median Median net worth in quintile 2, 3 and 4 are quite close to each other. However, the fifth quitile's mean net worth is more than two times on average to the median net worth of fifth quintile, which show the fact that <b>even in the fifth quintile the net worth is not evenly distributed</b>, some super rich guys exist and lift the median value a lot. <b>Meanwhile, There are some data showing a astonishing fact that top 1% people owns 1.5 times wealth to the bottom 50% people.</b>
+            </p>
+            <div id="region"></div>
+
+            <script src="heatmap.js"></script>
+            <script src="region.js"></script>
+
 		</div>
 
     </body>
