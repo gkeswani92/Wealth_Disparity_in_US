@@ -8,6 +8,7 @@
               shape-rendering: crispEdges;
             }
             svg {border: solid black 1px;}
+
             .label{
               font-family: Verdana;
             }
@@ -36,13 +37,11 @@
         </div>
 
         <script>
-
             var margin = { top: 20, right: 100, bottom: 100, left: 200 };
             var width = 1150 - margin.left - margin.right;
             var height = 600;
             var gridSize = Math.floor(width / 44);
             var colors = d3.scale.ordinal().range(["#d7191c","#fdae61","#ffffbf","#a6d96a","#1a9641"]);
-            var colorScale;
             var yearScale = Array(3);
             var netWorth = Array(130);
 
@@ -172,7 +171,7 @@
         </script>
 
         <br/> <br/> <br/> <br/>
-        
+
         <div id="race" style="width:960px; margin:0 auto; border: solid black 1px;">
 			<svg width="960" height="800" viewPort="0 0 800 800" version="1.1" xmlns="http://www.w3.org/2000/svg">
 
