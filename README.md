@@ -1,1 +1,0 @@
-# Wealth_Disparity_in_US
