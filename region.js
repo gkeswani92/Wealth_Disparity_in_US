@@ -3,8 +3,6 @@ var region_width = 1200,
 	region_padding = 100
 	region_axis_padding = 55;
 
-var colors = [];
-
 var region_svg = d3.select("#region").append("svg")
 .attr("width", region_width + 2 * region_padding).attr("height", region_height + 100);
 
@@ -29,11 +27,11 @@ var wealthScaleForMean = d3.scale.linear()
 .domain(wealthRange)
 .range([region_width / 2 + region_padding, region_width + region_padding]);
 
-var colors = ["#d7191c", "#fdae61", "#a6d96a", "#1a9641"];
+var region_colors = ["#d7191c", "#fdae61", "#a6d96a", "#1a9641"];
 
 var colorScale = d3.scale.linear()
 .domain(d3.range(2, 6))
-.range(colors);
+.range(region_colors);
 
 // Label & Axis
 // Region
@@ -98,7 +96,7 @@ region_svg.append("g")
 // Legend
 var regionQuintileLegend = region_svg.append("g")
 regionQuintileLegend.selectAll("squareLegend")
-				.data(colors)
+				.data(region_colors)
 				.enter()
 				.append("rect")
 				.attr("x", region_padding / 2)

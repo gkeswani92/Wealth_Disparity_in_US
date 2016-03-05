@@ -5,10 +5,10 @@ var heatmap_padding = {
 	left: 320,
 	bottom: 100
 };
-var heatmap_width = 1150
+var heatmap_width = 1200
 	heatmap_height = 300
 	graticuleSize = 50
-	colors = ["#d7191c", "#fdae61", "#a6d96a", "#1a9641"];
+	heatmap_colors = ["#d7191c", "#fdae61", "#a6d96a", "#1a9641"];
 
 var ageArray = ["<35", "35-44", "45-54", "55-64",">65"];
 var quinArray = [1, 2, 3, 4, 5];
@@ -125,11 +125,11 @@ function ageWealthViz(incomingData) {
 	var wealthRange = [Math.min(Math.min(wealthRange2000[0], wealthRange2005[0]), wealthRange2011[0]),
 					   Math.max(Math.max(wealthRange2000[1], wealthRange2005[1]), wealthRange2011[1])];
 	// console.log(wealthRange);
-	var colorScale = d3.scale.linear().domain([wealthRange[0], 0, wealthRange[0] + (wealthRange[1] - wealthRange[0]) * 1 / 3, wealthRange[1]]).range(colors);
+	var colorScale = d3.scale.linear().domain([wealthRange[0], 0, wealthRange[0] + (wealthRange[1] - wealthRange[0]) * 1 / 3, wealthRange[1]]).range(heatmap_colors);
 
 	// Legend for color scale
 	var legend = heatmap_svg.selectAll(".legend")
-      .data(colors)
+      .data(heatmap_colors)
       .enter().append("g")
       .attr("class", "legend")
       .attr("transform", function(d, i) { return "translate("+ 80 +"," + (20 + i * 20) + ")"; });
@@ -244,17 +244,5 @@ function ageWealthViz(incomingData) {
 	.attr("stroke", "#E6E6E6")
 	.attr("transform", "translate("+ (heatmap_padding.left + graticuleSize + ageArray.length * graticuleSize * 2) +", 0)")
 	.style("fill", function(d) { return colorScale(d.yearwealth2011); });
-
-
-
-	// wealth scale & axis & gradient
-	var wealthScale = d3.scale.linear().domain(colorScale.domain()).range([quinArray.length * graticuleSize, 0]);
-	var wealthAxis = d3.heatmap_svg.axis().scale(wealthScale).orient("right");
-
-	heatmap_svg.append("g")
-	.attr("class", "axis")
-	.attr("font-size", "14")
-	.attr("transform", "translate("+ (heatmap_width + heatmap_padding.left + 20) +", 0)")
-	.call(wealthAxis);
 
 };
