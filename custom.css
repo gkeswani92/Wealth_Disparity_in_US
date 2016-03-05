@@ -1,0 +1,59 @@
+/*#race {
+	width: 960px;
+	margin: 0 auto;
+}*/
+
+
+.label{
+font-family: Verdana;
+}
+
+.graphTitle{
+font-family: Verdana;
+width: 800px;
+padding-left: 100px;
+padding-top: 50px;
+
+}
+
+p{
+font-size: 14;
+}
+
+div#Title {
+text-align: center;
+font-size: 20px;
+color: #ca0020;
+}
+
+.explanation {
+width:650px;
+padding-left: 100px;
+margin-bottom:30px;
+font-size:15px;
+}
+
+p b {
+color: #ca0020;
+}
+
+.axis {
+	font: 10px sans-serif;
+}
+.axis path,
+.axis line {
+fill: none;
+stroke: #000;
+shape-rendering: crispEdges;
+}
+`
+.axis text {
+font-family: Verdana;
+}
+
+path.plot { fill: none; stroke-width: 3; }
+
+.text {
+text-anchor: middle;
+font-size: 12px;
+}

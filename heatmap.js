@@ -5,7 +5,7 @@ var heatmap_padding = {
 	left: 320,
 	bottom: 100
 };
-var heatmap_width = 1500
+var heatmap_width = 1150
 	heatmap_height = 300
 	graticuleSize = 50
 	colors = ["#d7191c", "#fdae61", "#a6d96a", "#1a9641"];
@@ -13,13 +13,13 @@ var heatmap_width = 1500
 var ageArray = ["<35", "35-44", "45-54", "55-64",">65"];
 var quinArray = [1, 2, 3, 4, 5];
 
-var svg = d3.select("#heatMap").append("svg")
+var heatmap_svg = d3.select("#heatMap").append("svg")
 		  .attr("width", heatmap_width)
 		  .attr("height", heatmap_height)
 		  ;
 
 // Age Group label
-var yearLabel2000 = svg.append("text")
+var yearLabel2000 = heatmap_svg.append("text")
 					.attr("class", "label")
 					.text("2000")
 					.attr("x", heatmap_padding.left + ageArray.length * graticuleSize / 2)
@@ -29,7 +29,7 @@ var yearLabel2000 = svg.append("text")
 					.style("font-size", "20")
 					;
 
-var yearLabel2005 = svg.append("text")
+var yearLabel2005 = heatmap_svg.append("text")
 					.attr("class", "label")
 					.text("2005")
 					.attr("x", heatmap_padding.left + 1.5 * ageArray.length * graticuleSize + graticuleSize / 2)
@@ -39,7 +39,7 @@ var yearLabel2005 = svg.append("text")
 					.style("font-size", "20")
 					;
 
-var yearLabel2011 = svg.append("text")
+var yearLabel2011 = heatmap_svg.append("text")
 					.attr("class", "label")
 					.text("2011")
 					.attr("x", heatmap_padding.left + 2.5 * ageArray.length * graticuleSize + graticuleSize)
@@ -49,7 +49,7 @@ var yearLabel2011 = svg.append("text")
 					.style("font-size", "20")
 					;
 
-var ageGroups2000 = svg.selectAll("ageGroup")
+var ageGroups2000 = heatmap_svg.selectAll("ageGroup")
 				.data(ageArray)
 				.enter()
 				.append("text")
@@ -61,7 +61,7 @@ var ageGroups2000 = svg.selectAll("ageGroup")
 				.style("font-size", "12")
 				.attr("transform", "translate("+ (heatmap_padding.left + graticuleSize / 2) +", -40)");
 
-var ageGroups2005 = svg.selectAll("ageGroup")
+var ageGroups2005 = heatmap_svg.selectAll("ageGroup")
 				.data(ageArray)
 				.enter()
 				.append("text")
@@ -73,7 +73,7 @@ var ageGroups2005 = svg.selectAll("ageGroup")
 				.style("font-size", "12")
 				.attr("transform", "translate("+ (heatmap_padding.left + graticuleSize + ageArray.length * graticuleSize) +", -40)");
 
-var ageGroups2011 = svg.selectAll("ageGroup")
+var ageGroups2011 = heatmap_svg.selectAll("ageGroup")
 				.data(ageArray)
 				.enter()
 				.append("text")
@@ -85,7 +85,7 @@ var ageGroups2011 = svg.selectAll("ageGroup")
 				.style("font-size", "12")
 				.attr("transform", "translate("+ (heatmap_padding.left + graticuleSize * 1.5 + ageArray.length * graticuleSize * 2) +", -40)");
 
-var quintileGroups = svg.selectAll("quintileGroups")
+var quintileGroups = heatmap_svg.selectAll("quintileGroups")
 					 .data(quinArray)
 					 .enter()
 					 .append("text")
@@ -128,7 +128,7 @@ function ageWealthViz(incomingData) {
 	var colorScale = d3.scale.linear().domain([wealthRange[0], 0, wealthRange[0] + (wealthRange[1] - wealthRange[0]) * 1 / 3, wealthRange[1]]).range(colors);
 
 	// Legend for color scale
-	var legend = svg.selectAll(".legend")
+	var legend = heatmap_svg.selectAll(".legend")
       .data(colors)
       .enter().append("g")
       .attr("class", "legend")
@@ -149,7 +149,7 @@ function ageWealthViz(incomingData) {
 	  .style("alignment-baseline", "central");
 
 	// Heap map
-	var heatMap2000 = svg.selectAll("wealth2000")
+	var heatMap2000 = heatmap_svg.selectAll("wealth2000")
 	.data(incomingData)
 	.enter()
 	.append("rect")
@@ -181,7 +181,7 @@ function ageWealthViz(incomingData) {
 	.attr("transform", "translate("+ heatmap_padding.left +", 0)")
 	.style("fill", function(d) { return colorScale(d.yearwealth2000); });
 
-	var heatMap2005 = svg.selectAll("wealth2005")
+	var heatMap2005 = heatmap_svg.selectAll("wealth2005")
 	.data(incomingData)
 	.enter()
 	.append("rect")
@@ -213,7 +213,7 @@ function ageWealthViz(incomingData) {
 	.attr("transform", "translate("+ (heatmap_padding.left + graticuleSize / 2 + ageArray.length * graticuleSize) +", 0)")
 	.style("fill", function(d) { return colorScale(d.yearwealth2005); });
 
-	var heatMap2011 = svg.selectAll("wealth2011")
+	var heatMap2011 = heatmap_svg.selectAll("wealth2011")
 	.data(incomingData)
 	.enter()
 	.append("rect")
@@ -249,9 +249,9 @@ function ageWealthViz(incomingData) {
 
 	// wealth scale & axis & gradient
 	var wealthScale = d3.scale.linear().domain(colorScale.domain()).range([quinArray.length * graticuleSize, 0]);
-	var wealthAxis = d3.svg.axis().scale(wealthScale).orient("right");
+	var wealthAxis = d3.heatmap_svg.axis().scale(wealthScale).orient("right");
 
-	svg.append("g")
+	heatmap_svg.append("g")
 	.attr("class", "axis")
 	.attr("font-size", "14")
 	.attr("transform", "translate("+ (heatmap_width + heatmap_padding.left + 20) +", 0)")
