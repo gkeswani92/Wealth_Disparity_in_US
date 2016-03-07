@@ -132,7 +132,7 @@ function ageWealthViz(incomingData) {
       .data(heatmap_colors)
       .enter().append("g")
       .attr("class", "legend")
-      .attr("transform", function(d, i) { return "translate("+ 80 +"," + (20 + i * 20) + ")"; });
+      .attr("transform", function(d, i) { return "translate("+ 1130 +"," + (i * 20) + ")"; });
 
 	legend.append("rect")
 	  .attr("width", 20)

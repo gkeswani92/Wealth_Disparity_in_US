@@ -99,7 +99,7 @@ regionQuintileLegend.selectAll("squareLegend")
 				.data(region_colors)
 				.enter()
 				.append("rect")
-				.attr("x", region_padding / 2)
+				.attr("x", 2 * region_padding)
 				.attr("y", function(d, i) {
 					return i * 30 + 70;
 				})
@@ -117,7 +117,7 @@ regionQuintileLegend.selectAll("quintileLegend")
 							+ (100 - d * 20) + "~"
 							+ (100 - (d - 1) * 20) + "%";
 				})
-				.attr("x", region_padding)
+				.attr("x", 2.5 * region_padding)
 				.attr("y", function(d, i) {
 					return i * 30 + 75;
 				})
