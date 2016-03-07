@@ -162,7 +162,7 @@ function regionViz(data) {
 	.style("alignment-baseline", "central")
 	.style("font-size", "15")
 	.attr("fill", "MintCream")
-	.attr("opacity", "0.5");
+	;
 
 	region_svg.append("text")
 	.attr("x", region_width / 2 + 300)
@@ -172,7 +172,7 @@ function regionViz(data) {
 	.style("alignment-baseline", "central")
 	.style("font-size", "15")
 	.attr("fill", "MintCream")
-	.attr("opacity", "0.8");
+	;
 
 	region_svg.append("text")
 	.attr("x", region_width / 2 + 300)
@@ -182,7 +182,7 @@ function regionViz(data) {
 	.style("alignment-baseline", "central")
 	.style("font-size", "15")
 	.attr("fill", "MintCream")
-	.attr("opacity", "0.8");
+	;
 
 	region_svg.append("text")
 	.attr("x", region_width / 2 + 450)

@@ -5,11 +5,11 @@
 
 
 .label{
-font-family: Verdana;
+font-family: 'PT Sans', sans-serif;
 }
 
 .graphTitle{
-font-family: Verdana;
+font-family: 'PT Sans', sans-serif;
 width: 800px;
 padding-left: 100px;
 padding-top: 50px;
@@ -21,6 +21,7 @@ font-size: 14;
 }
 
 .Title {
+font-family: 'PT Sans', sans-serif;
 text-align: center;
 font-size: 20px;
 color: #ca0020;
@@ -50,7 +51,7 @@ shape-rendering: crispEdges;
 }
 `
 .axis text {
-font-family: Verdana;
+font-family: 'PT Sans', sans-serif;
 }
 
 path.plot { fill: none; stroke-width: 3; }
