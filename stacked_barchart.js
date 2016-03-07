@@ -2,7 +2,9 @@ var margin = { top: 20, right: 100, bottom: 100, left: 200 };
 var width = 1150 - margin.left - margin.right;
 var height = 600;
 var gridSize = Math.floor(width / 44);
-var colors = d3.scale.ordinal().range(["#d7191c","#fdae61","#ffffbf","#a6d96a","#1a9641"]);
+var c = ["#d7191c","#fdae61","#ffffbf","#a6d96a","#1a9641"];
+var legend_names = ["1st Quintile","2nd Quintile","3rd Quintile","4th Quintile","5th Quintile"]
+var colors = d3.scale.ordinal().range(c);
 var yearScale = Array(3);
 var netWorth = Array(130);
 
@@ -92,18 +94,31 @@ d3.csv("quantile_data.csv",
                         return colors(d.name);
                     });
 
-    var regionQuintileLegend = svg.append("g")
-    regionQuintileLegend.selectAll("squareLegend")
-    				.data(colors)
-    				.enter()
-    				.append("rect")
-    				.attr("x", width - 10)
-    				.attr("y", function(d, i) {
-    					return i * 30 + 70;
-    				})
-    				.attr("width", 30)
-    				.attr("height", 10)
-    				.style("fill", function(d) { return d; });
+        var regionQuintileLegend = svg.append("g")
+        regionQuintileLegend.selectAll("squareLegend")
+            				.data(c)
+            				.enter().append("rect")
+            				.attr("x", width - 15)
+            				.attr("y", function(d, i) {
+            					return i * 30 + 65;
+            				})
+            				.attr("width", 30)
+            				.attr("height", 30)
+            				.style("fill", function(d) { return d; });
+
+        regionQuintileLegend.selectAll("squareLegend")
+            				.data(legend_names)
+            				.enter().append("text")
+            				.attr("x", width + 20)
+            				.attr("y", function(d, i) {
+            					return i * 30 + 85;
+            				})
+            				.text(function(d, i) {
+                                console.log(d);
+            					return d;
+            				});
+
+
     });
 
 svg.append("g")
