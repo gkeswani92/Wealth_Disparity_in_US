@@ -99,7 +99,7 @@ regionQuintileLegend.selectAll("squareLegend")
 				.data(region_colors)
 				.enter()
 				.append("rect")
-				.attr("x", region_padding / 2)
+				.attr("x", 2 * region_padding)
 				.attr("y", function(d, i) {
 					return i * 30 + 70;
 				})
@@ -117,7 +117,7 @@ regionQuintileLegend.selectAll("quintileLegend")
 							+ (100 - d * 20) + "~"
 							+ (100 - (d - 1) * 20) + "%";
 				})
-				.attr("x", region_padding)
+				.attr("x", 2.5 * region_padding)
 				.attr("y", function(d, i) {
 					return i * 30 + 75;
 				})
@@ -137,7 +137,6 @@ function regionViz(data) {
 	regionsData = data;
 
 	regionsData.forEach(function(d) {
-// console.log(wealthScaleForMean(d.mean / 1000) - wealthScaleForMean(0));
 		region_svg.append("rect")
 		.attr("x", wealthScaleForMean(wealthRange[0]) + region_axis_padding)
 		.attr("y", regionBands(d.region))
@@ -147,7 +146,6 @@ function regionViz(data) {
 	});
 
 	regionsData.forEach(function(d) {
-// console.log(wealthScaleForMean(d.median / 1000) - wealthScaleForMean(0));
 		region_svg.append("rect")
 		.attr("x", wealthScaleForMedian(wealthRange[1] - wealthRange[0] - d.median / 1000) - region_axis_padding)
 		.attr("y", regionBands(d.region))

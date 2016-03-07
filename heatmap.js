@@ -89,7 +89,7 @@ var quintileGroups = heatmap_svg.selectAll("quintileGroups")
 					 .data(quinArray)
 					 .enter()
 					 .append("text")
-					 .text(function(q) { return "Quintile " + q; })
+					 .text(function(q) { return "Quintile " + q + "(" + 20*(5-q) + "~" + 20*(6-q) + "%)"; })
 					 .attr("x", heatmap_padding.left)
 					 .attr("y", function(q, i) { return 250 - i * graticuleSize; })
 					 .style("text-anchor","end")
@@ -132,7 +132,7 @@ function ageWealthViz(incomingData) {
       .data(heatmap_colors)
       .enter().append("g")
       .attr("class", "legend")
-      .attr("transform", function(d, i) { return "translate("+ 80 +"," + (20 + i * 20) + ")"; });
+      .attr("transform", function(d, i) { return "translate("+ 1130 +"," + (i * 20) + ")"; });
 
 	legend.append("rect")
 	  .attr("width", 20)
