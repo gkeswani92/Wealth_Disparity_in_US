@@ -59,3 +59,9 @@ path.plot { fill: none; stroke-width: 3; }
 text-anchor: middle;
 font-size: 12px;
 }
+
+#race svg {
+margin-left:auto; 
+margin-right:auto; 
+display:block;
+}
