@@ -119,14 +119,6 @@ svg.append("g")
    .call(yAxis);
 
 svg.append("text")
-        .attr("x", width / 2)
-        .attr("y", height)
-        .text("74% of the total wealth")
-        .style("text-anchor","middle")
-        .style("alignment-baseline", "central")
-        .style("font-size", "15");
-
-svg.append("text")
          .attr("class", "label")
          .text("74.046% of the total wealth")
          .attr("x", width/4 - 60)
