@@ -1,6 +1,6 @@
-var margin = { top: 20, right: 100, bottom: 100, left: 200 };
-var width = 1150 - margin.left - margin.right;
-var height = 600;
+var margin = { top: 20, right: 100, bottom: 100, left: 100 };
+var width = 900 - margin.left - margin.right;
+var height = 400;
 var gridSize = Math.floor(width / 44);
 var c = ["#d7191c","#fdae61","#ffffbf","#a6d96a","#1a9641"];
 var legend_names = ["1st Quintile","2nd Quintile","3rd Quintile","4th Quintile","5th Quintile"]
@@ -85,7 +85,7 @@ d3.csv("quantile_data.csv",
       year.selectAll("rect")
             .data(function (d) { return d.types; })
             .enter().append("rect")
-            .attr("width", x.rangeBand())
+            .attr("width", 100)
             .attr("y", function (d) { return y(d.y1); })
             .attr("height", function (d) {
                         return Math.abs(y(d.y0) - y(d.y1));
@@ -135,26 +135,26 @@ svg.append("g")
 
 svg.append("text")
          .attr("class", "label")
-         .text("74.046% of the total wealth")
-         .attr("x", width/4 - 60)
-         .attr("y", 220)
+         .text("74.046% of the wealth")
+         .attr("x", width/4 - 90)
+         .attr("y", 150)
          .style("text-anchor", "middle")
          .style("alignment-baseline", "central")
          .style("font-size", "15");
 
  svg.append("text")
           .attr("class", "label")
-          .text("72.9% of the total wealth")
-          .attr("x", width - 425)
-          .attr("y", 55)
+          .text("72.9% of the wealth")
+          .attr("x", width - 390)
+          .attr("y", 30)
           .style("text-anchor", "middle")
           .style("alignment-baseline", "central")
           .style("font-size", "15");
 
  svg.append("text")
           .attr("class", "label")
-          .text("79.509% of the total wealth")
-          .attr("x", width - 150)
+          .text("79.509% of the wealth")
+          .attr("x", width - 170)
           .attr("y", -13)
           .style("text-anchor", "middle")
           .style("alignment-baseline", "central")
@@ -163,8 +163,8 @@ svg.append("text")
 svg.append("text")
     .attr("class", "label")
     .text("2000")
-    .attr("x", width/4 - 60)
-    .attr("y", height + 35)
+    .attr("x", width/4 - 80)
+    .attr("y", height + 25)
     .style("text-anchor", "middle")
     .style("alignment-baseline", "central")
     .style("font-size", "15");
@@ -172,8 +172,8 @@ svg.append("text")
 svg.append("text")
     .attr("class", "label")
     .text("2005")
-    .attr("x",  width - 425)
-    .attr("y", height + 35)
+    .attr("x",  width - 325)
+    .attr("y", height + 25)
     .style("text-anchor", "middle")
     .style("alignment-baseline", "central")
     .style("font-size", "15");
@@ -182,7 +182,7 @@ svg.append("text")
      .attr("class", "label")
      .text("2011")
      .attr("x", width - 150)
-     .attr("y", height + 35)
+     .attr("y", height + 25)
      .style("text-anchor", "middle")
      .style("alignment-baseline", "central")
      .style("font-size", "15");
