@@ -91,6 +91,19 @@ d3.csv("quantile_data.csv",
             .style("fill", function (d) {
                         return colors(d.name);
                     });
+
+    var regionQuintileLegend = svg.append("g")
+    regionQuintileLegend.selectAll("squareLegend")
+    				.data(colors)
+    				.enter()
+    				.append("rect")
+    				.attr("x", width - 10)
+    				.attr("y", function(d, i) {
+    					return i * 30 + 70;
+    				})
+    				.attr("width", 30)
+    				.attr("height", 10)
+    				.style("fill", function(d) { return d; });
     });
 
 svg.append("g")
@@ -139,3 +152,30 @@ svg.append("text")
           .style("text-anchor", "middle")
           .style("alignment-baseline", "central")
           .style("font-size", "15");
+
+svg.append("text")
+    .attr("class", "label")
+    .text("2000")
+    .attr("x", width/4 - 60)
+    .attr("y", height + 35)
+    .style("text-anchor", "middle")
+    .style("alignment-baseline", "central")
+    .style("font-size", "15");
+
+svg.append("text")
+    .attr("class", "label")
+    .text("2005")
+    .attr("x",  width - 425)
+    .attr("y", height + 35)
+    .style("text-anchor", "middle")
+    .style("alignment-baseline", "central")
+    .style("font-size", "15");
+
+svg.append("text")
+     .attr("class", "label")
+     .text("2011")
+     .attr("x", width - 150)
+     .attr("y", height + 35)
+     .style("text-anchor", "middle")
+     .style("alignment-baseline", "central")
+     .style("font-size", "15");
