@@ -137,7 +137,6 @@ function regionViz(data) {
 	regionsData = data;
 
 	regionsData.forEach(function(d) {
-// console.log(wealthScaleForMean(d.mean / 1000) - wealthScaleForMean(0));
 		region_svg.append("rect")
 		.attr("x", wealthScaleForMean(wealthRange[0]) + region_axis_padding)
 		.attr("y", regionBands(d.region))
@@ -147,7 +146,6 @@ function regionViz(data) {
 	});
 
 	regionsData.forEach(function(d) {
-// console.log(wealthScaleForMean(d.median / 1000) - wealthScaleForMean(0));
 		region_svg.append("rect")
 		.attr("x", wealthScaleForMedian(wealthRange[1] - wealthRange[0] - d.median / 1000) - region_axis_padding)
 		.attr("y", regionBands(d.region))

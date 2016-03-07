@@ -11,46 +11,48 @@
 <div>
 	<h1 align="center" style="color: #ca0020">Wealth disparty in US</h1>
 
+	<!-- Heat map -->
 	<div class="Title">
 		<h2>Age-Quintiles-Wealth Distribution in different years</h2>
-	</div>
-	<p class="explanation">
-			The 3 heat maps depict the wealth distribution in 2000, 2005 and 2011. As we can see, the wealth was distributed more evenly in 2000 than it is in 2011.
+		<p class="explanation">
+			The three heat maps depict the wealth distribution in 2000, 2005 and 2011. As we can see, the wealth was distributed more evenly in 2000 than it is in 2011.
 			Through the years, the situation of people in <b>quintile 1 (poorest group) is becoming worse. </b> while the <b> fifth quintile (richest group) has accumulated a lot more wealth than it had back in 2000 </b>.
 			The <b> ratio of mean to median net worth in the 5th quintile becomes worse on the west coast </b> where the mean network is 3.5 times the median networth.
-	</p>
+		</p>
+	</div>
 	<div id="heatMap"></div>
 
+	<!-- histogram -->
 	<div class="Title">
 		<h2>Mean net worth per quantile</h2>
+		<p class="explanation">
+			Now that we have seen the mean distribution of wealth across the various quantiles and their age groups, lets zoom out to view the comparison of mean net worths
+			of the various quantiles through 2000 to 2011. As can be seen, the <b> lower quantiles were starting to get closer </b> to the 5th quantile but after the <b> recession in
+			2008, the 5th quantile have accumulated almost 80% of the wealth </b> as compared to the 74% in 2000
+		</p>
 	</div>
-	<p class="explanation">
-		Now that we have seen the mean distribution of wealth across the various quantiles and their age groups, lets zoom out to view the comparison of mean net worths
-		of the various quantiles through 2000 to 2011. As can be seen, the <b> lower quantiles were starting to get closer </b> to the 5th quantile but after the <b> recession in
-		2008, the 5th quantile have accumulated almost 80% of the wealth </b> as compared to the 74% in 2000
-	</p>
 	<div id = "mean_quantile_yearwise">
 		<div class ="year"> </div>
 	</div>
 
-
+	<!-- region comparison -->
 	<div class="Title">
-		<h2>Median and Mean net worth comparison by regions of US</h2>
+		<h2>Median and Mean net worth comparison by regions</h2>
+		<p class="explanation">
+			The mean net worth and median net worth in quintile 2, 3 and 4 are quite close to each other. However, the fifth quitile's mean net worth on an average is more than two times the median net worth, which shows the fact that <b> even in the fifth quintile, wealth is not evenly distributed and there are some really very rich people who have accumulated most of the wealth. </b>
+		</p>
 	</div>
-	<p class="explanation">
-		The mean net worth and median net worth in quintile 2, 3 and 4 are quite close to each other. However, the fifth quitile's mean net worth on an average is more than two times the median net worth, which shows the fact that there are <b> some really very rich people who have accumulated most of the wealth. </b>
-	</p>
 	<div id="region"></div>
 
+	<!-- racial comparison -->
 	<div class="Title">
 		<h2>Wealth Distribution within Race Groups</h2>
 		<p class="explanation">
-			Each race group have been divided equally into 5 quintiles, from the richest to the poorest. Each quintile contains 20% of the population of that race. The following graph descirbes the <b>percentage</b> of net worth owned by 5 equally divided groups within each race. As shown, the majority of the wealth is owned by the richest 20%, <b>while the poorest 20% has a negative net worth.</b>
+			Each race group has been divided equally into 5 quintiles, from the richest to the poorest. Each quintile contains 20% of the population of that race. The following graph descirbes the <b>percentage</b> of net worth owned by 5 equally divided groups within each race. As shown, the majority of the wealth is owned by the richest 20%, <b>while the poorest 20% has a negative net worth.</b>
 		</p>
 	</div>
 	<div id="race" class="row-content">
 	<svg width="1000" height="400">
-
 		<defs>
 			<clipPath id="myClip">
 			  <!-- Rich White Dollar Sign-->
@@ -147,9 +149,9 @@
 	</div>
 
 </div>
+
 <script src="stacked_barchart.js"></script>
 <script src="heatmap.js"></script>
 <script src="region.js"></script>
-
 </body>
 </html>
