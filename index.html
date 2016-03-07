@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Wealth distribution & Hope</title>
+	<title>Wealth distribution in the US</title>
 	<script src="http://d3js.org/d3.v3.js"></script>
     <script src="http://d3js.org/topojson.v1.min.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -11,8 +11,8 @@
 <div>
 	<h1 align="center" style="color: #ca0020">Wealth disparty in US</h1>
 
-	<div id="Title">
-		<h2>Age-Quintiles-Wealth Distribution in different year</h2>
+	<div>
+		<h2 id="Title">Age-Quintiles-Wealth Distribution in different year</h2>
 	</div>
 	<p class="explanation">
 			The 3 heat maps depict the wealth distribution in 2000, 2005 and 2011. As we can see, the wealth was distributed more evenly in 2000 than it is in 2011.
@@ -20,6 +20,17 @@
 			The <b> ratio of mean to median net worth in the 5th quintile becomes worse on the west coast </b> where the mean network is 3.5 times the median networth.
 	</p>
 	<div id="heatMap"></div>
+
+
+	<div id = "mean_quantile_yearwise">
+		<h2 id="Title">Mean net worth per quantile</h2>
+		<p class="explanation">
+			Now that we have seen the mean distribution of wealth across the various quantiles and their age groups, lets zoom out to view the comparison of mean net worths
+			of the various quantiles through 2000 to 2011. As can be seen, the <b> lower quantiles were starting to get closer </b> to the 5th quantile but after the <b> recession in
+			2008, the 5th quantile have accumulated almost 80% of the wealth </b> as compared to the 74% in 2000
+		</p>
+		<div class ="year"> </div>
+	</div>
 
 
 	<div id="Title">
@@ -30,10 +41,6 @@
 	</p>
 	<div id="region"></div>
 
-	<div id = "mean_quantile_yearwise">
-		<h2 id="Title">Your Tile here</h2>
-		<div class ="year"> </div>
-	</div>
 
 	<div id="race" class="row row-content">
 		<h2 id="Title">Your Tile here</h2>
@@ -94,7 +101,7 @@
 	</div>
 
 </div>
-<script src="gaurav.js"></script>
+<script src="stacked_barchart.js"></script>
 <script src="heatmap.js"></script>
 <script src="region.js"></script>
 
