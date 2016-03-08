@@ -89,7 +89,17 @@ var quintileGroups = heatmap_svg.selectAll("quintileGroups")
 					 .data(quinArray)
 					 .enter()
 					 .append("text")
-					 .text(function(q) { return "Quintile " + q + "(" + 20*(5-q) + "~" + 20*(6-q) + "%)"; })
+					 .text(function(q) { 
+					 	if (q === 5) {
+					 		return "1st Quintile " + " (" + 20*(5-q) + "~" + 20*(6-q) + "%)";
+					 	}
+					 	else if (q === 2) {
+					 		return "2nd Quintile " + " (" + 20*(5-q) + "~" + 20*(6-q) + "%)";
+					 	}
+					 	else {
+					 		return q + "th Quintile " + " (" + 20*(5-q) + "~" + 20*(6-q) + "%)";
+					 	}
+					  })
 					 .attr("x", heatmap_padding.left)
 					 .attr("y", function(q, i) { return 250 - i * graticuleSize; })
 					 .style("text-anchor","end")
@@ -129,7 +139,7 @@ function ageWealthViz(incomingData) {
 
 	// Legend for color scale
 	var legend = heatmap_svg.selectAll(".legend")
-      .data(heatmap_colors)
+      .data(["#1a9641", "#a6d96a", "#fdae61", "#d7191c"])
       .enter().append("g")
       .attr("class", "legend")
       .attr("transform", function(d, i) { return "translate("+ 1130 +"," + (i * 20) + ")"; });
@@ -140,7 +150,7 @@ function ageWealthViz(incomingData) {
 	  .style("fill", function(d) { return d; });
 
 	legend.append("text")
-	  .data([wealthRange[0], 0, wealthRange[0] + (wealthRange[1] - wealthRange[0]) * 1 / 3, wealthRange[1]])
+	  .data([wealthRange[1], wealthRange[0] + (wealthRange[1] - wealthRange[0]) * 1 / 3, 0 , wealthRange[0]])
 	  .text(function(d) { return "$" + d; })
 	  .attr("x", 30)
 	  .attr("y", function(d, i) { return 8 + i * 1.5; })
